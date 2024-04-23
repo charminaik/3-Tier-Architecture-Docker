@@ -16,15 +16,15 @@ This guide provides step-by-step instructions to set up a 3-tier architecture co
 
 #### 1.1. Build the Backend Docker Image
 
-```bash
+bash
 cd backend
 docker build -t backend .
 
 
 #### 1.2. Run the Backend Container
 
-bash
-docker run -d --name backend --network cloud backend
+```bash
+docker run -d --name backend --network cloud backend ```bash
 
 
 ### 2. MySQL Setup
