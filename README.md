@@ -16,43 +16,43 @@ This guide provides step-by-step instructions to set up a 3-tier architecture co
 
 #### 1.1. Build the Backend Docker Image
 
-bash
+```bash
 cd backend
 docker build -t backend .
-
+```
 
 #### 1.2. Run the Backend Container
 
 ```bash
-docker run -d --name backend --network cloud backend ```bash
-
+docker run -d --name backend --network cloud backend 
+```
 
 ### 2. MySQL Setup
 
 #### 2.1. Run the MySQL Container
 
-bash
+```bash
 docker run -d --name mysql --network cloud -e MYSQL_ROOT_PASSWORD=12345678 mysql:latest
-
+```
 
 #### 2.2. Create Database and Table
 
 - Access the MySQL container shell:
 
-bash
+```bash
 docker exec -it mysql bash
-
+```
 
 - Once inside the container, access MySQL:
 
-bash
+```bash
 mysql -uroot -p
-
+```
 
 - Enter the password (12345678).
 
 - Execute the following SQL commands to create the database and table:
-
+```bash
 sql
 CREATE DATABASE cn;
 USE cn;
@@ -62,22 +62,22 @@ CREATE TABLE Persons (
     email VARCHAR(255) NOT NULL,
     message TEXT NOT NULL
 );
-
+```
 
 ### 3. Frontend Setup
 
 #### 3.1. Build the Frontend Docker Image
 
-bash
+```bash
 cd ../frontend
 docker build -t frontend .
-
+```
 
 #### 3.2. Run the Frontend Container
 
-bash
+```bash
 docker run -d --name frontend --network cloud -p 80:80 frontend
-
+```
 
 ### 4. Access the Application
 
